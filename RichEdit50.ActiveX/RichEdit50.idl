@@ -1,0 +1,61 @@
+// RichEdit50.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (RichEdit50.tlb) that will become a resource in
+// RichEdit50.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(B3D949B0-26D2-415F-A3CC-3A0232A7B3CF), version(1.0),
+  helpfile("RichEdit50.hlp"),
+  helpstring("RichEdit50 ActiveX Control module"),
+  control ]
+library RichEdit50Lib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CRichEdit50Ctrl
+
+	[ uuid(323BB75D-FB0F-4A26-98B8-7E0F363E0964),
+	  helpstring("Dispatch interface for RichEdit50 Control")]
+	dispinterface _DRichEdit50
+	{
+		properties:
+			[id(1), helpstring("property Rtf")] BSTR Rtf;
+			[id(2), helpstring("property SelectRtf")] BSTR SelectRtf;
+			[id(3), helpstring("property Modified")] VARIANT_BOOL Modified;
+			[id(6), helpstring("property Text")] BSTR Text;
+			[id(7), helpstring("property SelectText")] BSTR SelectText;
+	methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(4), helpstring("method CanPaste")] VARIANT_BOOL CanPaste(LONG formatId);
+			[id(5), helpstring("method Paste")] void Paste(LONG formatId);
+			[id(8), helpstring("method Cut")] void Cut(void);
+			[id(9), helpstring("method Copy")] void Copy(void);
+	};
+
+	//  Event dispatch interface for CRichEdit50Ctrl
+
+	[ uuid(5F1F819F-698F-4A36-8B38-405EFBB98227),
+	  helpstring("Event interface for RichEdit50 Control") ]
+	dispinterface _DRichEdit50Events
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+	};
+
+	//  Class information for CRichEdit50Ctrl
+
+	[ uuid(47AEFB7F-E430-48DB-A702-60F3C045D612),
+	  helpstring("RichEdit50 Control"), control ]
+	coclass RichEdit50
+	{
+		[default] dispinterface _DRichEdit50;
+		[default, source] dispinterface _DRichEdit50Events;
+	};
+
+};

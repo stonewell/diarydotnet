@@ -1,0 +1,217 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diary.Net</RootNamespace>
+    <AssemblyName>Diary.Net</AssemblyName>
+    <ApplicationIcon>BOOK06.ICO</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBoxFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxFrm.Designer.cs">
+      <DependentUpon>AboutBoxFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DiaryNetDS.cs">
+      <DependentUpon>DiaryNetDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DiaryNetDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiaryNetDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DBManager.cs" />
+    <Compile Include="Html2Rtf\Html2Rtf.cs" />
+    <Compile Include="ListView\AttachmentViewItem.cs" />
+    <Compile Include="LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewDocumentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewDocumentFrm.Designer.cs">
+      <DependentUpon>NewDocumentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBoxFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBoxFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.zh-CN.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDocumentFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewDocumentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SearchFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectDateFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectDateFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="DB\DiaryNetDS.xsc">
+      <DependentUpon>DiaryNetDS.xsd</DependentUpon>
+    </None>
+    <None Include="DB\DiaryNetDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DiaryNetDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DB\DiaryNetDS.xss">
+      <DependentUpon>DiaryNetDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SearchFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchFrm.Designer.cs">
+      <DependentUpon>SearchFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectDateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectDateFrm.Designer.cs">
+      <DependentUpon>SelectDateFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tree\DayTreeNode.cs" />
+    <Compile Include="Tree\DocumentResultNode.cs" />
+    <Compile Include="Tree\DocumentTreeNode.cs" />
+    <Compile Include="Tree\MonthTreeNode.cs" />
+    <Compile Include="Tree\NoteResultNode.cs" />
+    <Compile Include="Tree\YearTreeNode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BOOK06.ICO" />
+    <EmbeddedResource Include="Html2Rtf\xhtml2rtf.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RichEdit.Net\RichEdit50\RichEdit50.vcproj">
+      <Project>{2EEB405B-90F4-493D-89DC-91A716FC5759}</Project>
+      <Name>RichEdit.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SQLite-1.0.48.0-source\System.Data.SQLite\System.Data.SQLite - Full.csproj">
+      <Project>{AC139952-261A-4463-B6FA-AEBC25283A66}</Project>
+      <Name>System.Data.SQLite - Full</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlatTabControl\FlatTabControl.csproj">
+      <Project>{96002CA1-D295-4ED5-9B08-92346C1BFA18}</Project>
+      <Name>FlatTabControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Functions\Functions.csproj">
+      <Project>{DAFFB80F-5F16-4D0A-88D4-AD33611D56E3}</Project>
+      <Name>Functions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlCleaner\HtmlClearnerDll.csproj">
+      <Project>{98EDD791-46E5-4747-8860-EFDF7FF4514F}</Project>
+      <Name>HtmlClearnerDll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sgmlreader-1.7.2\sgmlreaderdll\SgmlReaderDll8.csproj">
+      <Project>{499527FF-AE52-450F-B3E3-4AD53E1712AD}</Project>
+      <Name>SgmlReaderDll8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Win32Functions\Win32Functions.vcproj">
+      <Project>{852A8222-4B4D-41EC-851E-77D71A24BA75}</Project>
+      <Name>Win32Functions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSHTML">
+      <Guid>{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

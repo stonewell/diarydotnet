@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Net-VS2008", "src\Diary.Net-VS2008.csproj", "{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatTabControl-VS2008", "FlatTabControl\FlatTabControl-VS2008.csproj", "{96002CA1-D295-4ED5-9B08-92346C1BFA18}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SQLite.Interop", "..\SQLite-1.0.48.0-source\SQLite.Interop\SQLite.Interop-VS2008.vcproj", "{10B51CE8-A838-44DE-BD82-B658F0296F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Data.SQLite-VS2008", "..\SQLite-1.0.48.0-source\System.Data.SQLite\System.Data.SQLite-VS2008.csproj", "{AC139952-261A-4463-B6FA-AEBC25283A66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Pocket PC 2003 (ARMV4) = Debug|Pocket PC 2003 (ARMV4)
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Pocket PC 2003 (ARMV4) = Release|Pocket PC 2003 (ARMV4)
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Win32.Build.0 = Debug|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Win32.ActiveCfg = Release|Any CPU
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Win32.Build.0 = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Win32.Build.0 = Debug|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Win32.ActiveCfg = Release|Any CPU
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Win32.Build.0 = Release|Any CPU
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Any CPU.Build.0 = Debug|x64
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Mixed Platforms.ActiveCfg = Debug|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Mixed Platforms.Build.0 = Debug|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Mixed Platforms.Deploy.0 = Debug|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Pocket PC 2003 (ARMV4).Build.0 = Debug|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Pocket PC 2003 (ARMV4).Deploy.0 = Debug|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Win32.ActiveCfg = Debug|Win32
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Debug|Win32.Build.0 = Debug|Win32
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Any CPU.ActiveCfg = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Mixed Platforms.ActiveCfg = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Mixed Platforms.Build.0 = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Mixed Platforms.Deploy.0 = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Pocket PC 2003 (ARMV4).Build.0 = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Pocket PC 2003 (ARMV4).Deploy.0 = Release|Pocket PC 2003 (ARMV4)
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Win32.ActiveCfg = Release|Win32
+		{10B51CE8-A838-44DE-BD82-B658F0296F80}.Release|Win32.Build.0 = Release|Win32
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Debug|Win32.Build.0 = Debug|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Win32.ActiveCfg = Release|Any CPU
+		{AC139952-261A-4463-B6FA-AEBC25283A66}.Release|Win32.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

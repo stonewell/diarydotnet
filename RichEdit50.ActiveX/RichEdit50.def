@@ -1,0 +1,9 @@
+; RichEdit50.def : Declares the module parameters.
+
+LIBRARY      "RichEdit50.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE
