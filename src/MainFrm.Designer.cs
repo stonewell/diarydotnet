@@ -567,7 +567,10 @@ namespace Diary.Net
             // 
             // richTextBox
             // 
+            this.richTextBox.AcceptsTab = true;
             resources.ApplyResources(this.richTextBox, "richTextBox");
+            this.richTextBox.EnableAutoDragDrop = true;
+            this.richTextBox.HideSelection = false;
             this.richTextBox.Name = "richTextBox";
             // 
             // lvwAttachments
@@ -620,9 +623,9 @@ namespace Diary.Net
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrm";
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainFrm_PreviewKeyDown);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFrm_FormClosing);
             this.Load += new System.EventHandler(this.MainFrm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFrm_FormClosing);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainFrm_PreviewKeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.documentsContextMenuStrip.ResumeLayout(false);

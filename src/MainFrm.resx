@@ -682,7 +682,7 @@
     <value>tcNavigation</value>
   </data>
   <data name="&gt;&gt;tcNavigation.Type" xml:space="preserve">
-    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3042.17012, Culture=neutral, PublicKeyToken=null</value>
+    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3716.17164, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tcNavigation.Parent" xml:space="preserve">
     <value>scNaviContent.Panel1</value>
@@ -714,6 +714,9 @@
   <data name="richTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="richTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
   <data name="richTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -723,11 +726,14 @@
   <data name="richTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="richTextBox.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;richTextBox.Name" xml:space="preserve">
     <value>richTextBox</value>
   </data>
   <data name="&gt;&gt;richTextBox.Type" xml:space="preserve">
-    <value>RichEdit.Net.RichEdit50Control, RichEdit.Net, Version=1.0.3042.22667, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;richTextBox.Parent" xml:space="preserve">
     <value>scContents.Panel1</value>
@@ -925,7 +931,7 @@
     <value>ftcOthers</value>
   </data>
   <data name="&gt;&gt;ftcOthers.Type" xml:space="preserve">
-    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3042.17012, Culture=neutral, PublicKeyToken=null</value>
+    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3716.17164, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ftcOthers.Parent" xml:space="preserve">
     <value>scMainOthers.Panel2</value>

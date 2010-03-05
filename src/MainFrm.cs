@@ -18,6 +18,7 @@ namespace Diary.Net
 {
     public partial class MainFrm : Form
     {
+#if !__MonoCS__
         [DllImport("user32.dll")]
         private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint modifiers, uint vk);
         [DllImport("user32.dll")]
@@ -27,6 +28,8 @@ namespace Diary.Net
         private static extern int GlobalAddAtom(String atomString);
         [DllImport("kernel32.dll")]
         private static extern int GlobalDeleteAtom(int atom);
+        private int hotKeyAtom_ = 0;
+#endif
 
         private static readonly Hashtable yearNodes_ = new Hashtable();
 
@@ -34,8 +37,6 @@ namespace Diary.Net
 
         private ArrayList deletedAttachments_ = new ArrayList();
         private ArrayList insertedAttachments_ = new ArrayList();
-
-        private int hotKeyAtom_ = 0;
 
         public MainFrm()
         {
@@ -49,12 +50,14 @@ namespace Diary.Net
             scContents.Panel2Collapsed = true;
             scMainOthers.Panel2Collapsed = true;
 
+#if !__MonoCS__
             hotKeyAtom_ = GlobalAddAtom("Ctrl+Alt+a");
             RegisterHotKey(this.Handle, hotKeyAtom_, 0x3, 'A');
-
+#endif
             richTextBox.Modified = false;
 
-            loginToolStripMenuItem_Click(this, new EventArgs());
+            if (!DoLogin())
+                Application.Exit();
         }
 
         private void LoadDialyNotes()
@@ -377,6 +380,11 @@ namespace Diary.Net
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DoLogin();
+        }
+
+        private bool DoLogin()
+        {
             HandleModifiedState();
 
             LoginFrm frm = new LoginFrm();
@@ -390,7 +398,11 @@ namespace Diary.Net
                 LoadDocuments();
 
                 ChangeToDate(DateTime.Today);
+
+                return true;
             }
+
+            return false;
         }
 
         private void ChangeToDate(DateTime date)
@@ -723,8 +735,10 @@ namespace Diary.Net
         {
             HandleModifiedState();
 
+#if !__MonoCS__
             UnregisterHotKey(this.Handle, hotKeyAtom_);
             GlobalDeleteAtom(hotKeyAtom_);
+#endif
         }
 
         private void detailedViewToolStripMenuItem_Click(object sender, EventArgs e)
