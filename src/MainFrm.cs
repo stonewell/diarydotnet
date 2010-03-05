@@ -1143,13 +1143,24 @@ namespace Diary.Net
                     //}
                     //else
                     //{
-                    if (richTextBox.CanPaste(DataFormats.GetFormat(format)))
-                    {
-                        richTextBox.Paste(DataFormats.GetFormat(format));
-
-                        break;
-                    }
+                    //if (richTextBox.CanPaste(DataFormats.GetFormat(format)))
+                    //{
+                    //    richTextBox.Paste(DataFormats.GetFormat(format));
+                    //    break;
                     //}
+                    //}
+                    object o = Clipboard.GetData(DataFormats.Html);
+                    object o1 = Clipboard.GetImage();
+                    object o2 = Clipboard.GetData(DataFormats.Html);
+
+                    Font f = richTextBox.Font;
+                    Color fc = richTextBox.ForeColor;
+                    Color bc = richTextBox.BackColor;
+
+                    richTextBox.Paste();
+                    richTextBox.SelectionFont = f;
+                    richTextBox.SelectionColor = fc;
+                    richTextBox.SelectionBackColor = bc;
                 }
             }
         }
