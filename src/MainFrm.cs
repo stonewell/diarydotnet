@@ -78,6 +78,7 @@ namespace Diary.Net
             foreach (DiaryNetDS.DiaryNotesRow row in
                 Program.DiaryNetDS.DiaryNotes)
             {
+System.Console.WriteLine(row.Note_Date);
                 DayTreeNode node = AddDayNode(row.Note_Date, row.ID);
                 node.Commit();
             }

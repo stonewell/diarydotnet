@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project name="Money.Net" default="build">
+    <property name="basename" value="Diary.Net"/>
+    <property name="debug" value="true"/>
+
+    <target name="clean">
+        <delete>
+            <fileset>
+                <include name="bin/*"/>
+                <include name="**/*.resources"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="build">
+        <mkdir dir="bin" />
+        <csc target="exe" output="bin/${basename}.exe" debug="${debug}" codepage="936" >
+            <sources>
+                <include name="src/**/*.cs"/>
+				<exclude name="src/Html2Rtf/**/*.cs"/>
+            </sources>
+			<references>
+				<include name="System.Data.dll"/>
+				<include name="System.Drawing.dll"/>
+				<include name="System.Web.dll"/>
+				<include name="System.Windows.Forms.dll"/>
+				<include name="System.Xml.dll"/>
+			</references>
+			<resources>
+				<include name="src/**/*.resx"/>
+			</resources>
+        </csc>
+		<copy tofile="bin/${basename}.exe.config" file="src/App.config"/>
+    </target>
+</project>
+
