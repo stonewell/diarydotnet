@@ -1,0 +1,5 @@
+sqlite encrypt with password need
+1)libcrypto++
+2)sqlcipher 
+	http://github.com/sjlombardo/sqlcipher
+	../configure --enable-tempstore --disable-tcl CFLAGS="-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_COLUMN_METADATA" LDFLAGS="-lcrypto"

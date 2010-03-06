@@ -57,7 +57,13 @@ namespace Diary.Net
             richTextBox.Modified = false;
 
             if (!DoLogin())
-                Application.Exit();
+			{
+#if !__MonoCS__
+               	Application.Exit();
+#else
+				System.Environment.Exit(0);
+#endif
+			}
         }
 
         private void LoadDialyNotes()
@@ -402,6 +408,7 @@ namespace Diary.Net
                 return true;
             }
 
+System.Console.WriteLine("Login Cancel");
             return false;
         }
 

@@ -36,6 +36,8 @@ namespace Diary.Net
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+System.Console.Error.WriteLine(ex.StackTrace);
+System.Console.Error.WriteLine(ex.InnerException);
             }
         }
 

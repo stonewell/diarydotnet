@@ -86,7 +86,11 @@ namespace Diary.Net
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scMainOthers = new System.Windows.Forms.SplitContainer();
             this.scNaviContent = new System.Windows.Forms.SplitContainer();
+#if __MonoCS__
+			this.tcNavigation = new System.Windows.Forms.TabControl();
+#else
             this.tcNavigation = new FlatTabControl.FlatTabControl();
+#endif
             this.tpDariy = new System.Windows.Forms.TabPage();
             this.tvwDiary = new System.Windows.Forms.TreeView();
             this.tpDocuments = new System.Windows.Forms.TabPage();
@@ -95,7 +99,11 @@ namespace Diary.Net
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.lvwAttachments = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+#if __MonoCS__
+            this.ftcOthers = new System.Windows.Forms.TabControl();
+#else
             this.ftcOthers = new FlatTabControl.FlatTabControl();
+#endif
             this.tpFindResults = new System.Windows.Forms.TabPage();
             this.tvwFindResults = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
@@ -502,7 +510,11 @@ namespace Diary.Net
             this.tcNavigation.Controls.Add(this.tpDariy);
             this.tcNavigation.Controls.Add(this.tpDocuments);
             resources.ApplyResources(this.tcNavigation, "tcNavigation");
+#if __MonoCS__
+            this.tcNavigation.BackColor = System.Drawing.SystemColors.Control;
+#else
             this.tcNavigation.myBackColor = System.Drawing.SystemColors.Control;
+#endif
             this.tcNavigation.Name = "tcNavigation";
             this.tcNavigation.SelectedIndex = 0;
             this.tcNavigation.Selected += new System.Windows.Forms.TabControlEventHandler(this.tcNavigation_Selected);
@@ -595,7 +607,11 @@ namespace Diary.Net
             // 
             this.ftcOthers.Controls.Add(this.tpFindResults);
             resources.ApplyResources(this.ftcOthers, "ftcOthers");
+#if	__MonoCS__
+            this.ftcOthers.BackColor = System.Drawing.SystemColors.Control;
+#else
             this.ftcOthers.myBackColor = System.Drawing.SystemColors.Control;
+#endif
             this.ftcOthers.Name = "ftcOthers";
             this.ftcOthers.SelectedIndex = 0;
             // 
@@ -709,7 +725,13 @@ namespace Diary.Net
         private System.Windows.Forms.ToolStripMenuItem findResultToolStripMenuItem;
         private System.Windows.Forms.SplitContainer scMainOthers;
         private System.Windows.Forms.SplitContainer scNaviContent;
+#if __MonoCS__
+        private System.Windows.Forms.TabControl tcNavigation;
+        private System.Windows.Forms.TabControl ftcOthers;
+#else
+        private FlatTabControl.FlatTabControl ftcOthers;
         private FlatTabControl.FlatTabControl tcNavigation;
+#endif
         private System.Windows.Forms.TabPage tpDariy;
         private System.Windows.Forms.TreeView tvwDiary;
         private System.Windows.Forms.TabPage tpDocuments;
@@ -717,7 +739,6 @@ namespace Diary.Net
         private System.Windows.Forms.SplitContainer scContents;
         private System.Windows.Forms.ListView lvwAttachments;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private FlatTabControl.FlatTabControl ftcOthers;
         private System.Windows.Forms.TabPage tpFindResults;
         private System.Windows.Forms.TreeView tvwFindResults;
         private System.Windows.Forms.RichTextBox richTextBox;

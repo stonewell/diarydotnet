@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Diary.Net.DB;
 using System.Data.Common;
-using System.Data.SQLite;
 
 namespace Diary.Net
 {
@@ -11,9 +10,13 @@ namespace Diary.Net
     {
         private static readonly DiaryNetDS dairyNetDS_ = new DiaryNetDS();
         private static readonly DbProviderFactory dbProvideFactory_ = 
+#if __MonoCS__
+            DbProviderFactories.GetFactory("Mono.Data.SQLite");
+#else
             DbProviderFactories.GetFactory("System.Data.SQLite");
-        private static readonly SQLiteConnection dbConnection_ = 
-            new SQLiteConnection();
+#endif
+        private static readonly DbConnection dbConnection_ = 
+            dbProvideFactory_.CreateConnection();
 
         /// <summary>
         /// The main entry point for the application.
@@ -31,11 +34,14 @@ namespace Diary.Net
 
         static void Application_ApplicationExit(object sender, EventArgs e)
         {
+System.Console.WriteLine("Exit");
             if (dbConnection_.State != System.Data.ConnectionState.Closed)
             {
+System.Console.WriteLine("VACUUM");
                 DBManager.ExecuteNonQuery(dbConnection_, "VACUUM");
                 dbConnection_.Close();
             }
+System.Console.WriteLine("Exit Done");
         }
 
         public static DiaryNetDS DiaryNetDS
@@ -75,13 +81,13 @@ namespace Diary.Net
             if (dbConnection_.State != System.Data.ConnectionState.Closed)
                 dbConnection_.Close();
 
-            SQLiteConnectionStringBuilder builder =
-                new SQLiteConnectionStringBuilder();
+            DbConnectionStringBuilder builder =
+                dbProvideFactory_.CreateConnectionStringBuilder();
 
-            builder.Password = username + 
+            builder["password"] = username + 
                 "-Diary@Angel&Stone$2008-" + 
                 password;
-            builder.DataSource = dbName;
+            builder["data source"] = dbName;
             dbConnection_.ConnectionString = builder.ConnectionString;
 
             dbConnection_.Open();
