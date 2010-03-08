@@ -1,58 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Net-VS2008", "src\Diary.Net-VS2008.csproj", "{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Net-VS2008", "src\core\Diary.Net-VS2008.csproj", "{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatTabControl-VS2008", "FlatTabControl\FlatTabControl-VS2008.csproj", "{96002CA1-D295-4ED5-9B08-92346C1BFA18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatTabControl-VS2008", "src\third-party\FlatTabControl\FlatTabControl-VS2008.csproj", "{96002CA1-D295-4ED5-9B08-92346C1BFA18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|Mixed Platforms = Debug|Mixed Platforms
-		Debug|Pocket PC 2003 (ARMV4) = Debug|Pocket PC 2003 (ARMV4)
-		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
-		Release|Mixed Platforms = Release|Mixed Platforms
-		Release|Pocket PC 2003 (ARMV4) = Release|Pocket PC 2003 (ARMV4)
-		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|Win32.Build.0 = Debug|Any CPU
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|x64.ActiveCfg = Debug|x64
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Debug|x64.Build.0 = Debug|x64
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Win32.ActiveCfg = Release|Any CPU
-		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|Win32.Build.0 = Release|Any CPU
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|x64.ActiveCfg = Release|x64
 		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4}.Release|x64.Build.0 = Release|x64
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|Win32.Build.0 = Debug|Any CPU
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|x64.ActiveCfg = Debug|x64
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Debug|x64.Build.0 = Debug|x64
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Win32.ActiveCfg = Release|Any CPU
-		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Win32.Build.0 = Release|Any CPU
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|x64.ActiveCfg = Release|x64
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
