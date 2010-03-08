@@ -25,25 +25,19 @@ namespace Diary.Net.Control
             base.OnPaint(pe);
         }
 
-        public new Color myBackColor
+#if __MonoCS__
+        public Color myBackColor
         {
             get
             {
-#if __MonoCS__
                 return BackColor;
-#else
-                return base.myBackColor;
-#endif
             }
 
             set
             {
-#if __MonoCS__
                 BackColor = value;
-#else
-                base.myBackColor = value;
-#endif
             }
         }
+#endif
     }
 }

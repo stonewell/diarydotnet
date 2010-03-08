@@ -320,9 +320,9 @@ namespace Diary.Net.DB
         {
             using (DbCommand cmd = dbConnection.CreateCommand())
             {
-                cmd.CommandText = "select count(*) FROM content_fullText";
+                //cmd.CommandText = "select count(*) FROM content_fullText";
 
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                //int count = Convert.ToInt32(cmd.ExecuteScalar());
 
                 cmd.CommandText = "SELECT ID, IS_Documents FROM Content_FullText" +
                     " WHERE Content Like @FindWhat OR Title Like @FindWhat" +

@@ -517,9 +517,6 @@ namespace Diary.Net
                 "ID",
                 DataViewRowState.CurrentRows);
 
-            // Set a default icon for the file.
-            Icon iconForFile = SystemIcons.WinLogo;
-
             for (int i = 0; i < view.Count; i++)
             {
                 DiaryNetDS.AttachmentsRow row =
@@ -1171,10 +1168,6 @@ namespace Diary.Net
                     //    break;
                     //}
                     //}
-                    object o = Clipboard.GetData(DataFormats.Html);
-                    object o1 = Clipboard.GetImage();
-                    object o2 = Clipboard.GetData(DataFormats.Html);
-
                     Font f = richTextBox.Font;
                     Color fc = richTextBox.ForeColor;
                     Color bc = richTextBox.BackColor;

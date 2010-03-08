@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<project name="Money.Net" default="build">
+<project name="Diary.Net" default="build">
+    <property name="nant.settings.currentframework" value="mono-2.0" />
     <property name="basename" value="Diary.Net"/>
     <property name="debug" value="true"/>
 
@@ -16,21 +17,21 @@
         <mkdir dir="bin" />
         <csc target="winexe" output="bin/${basename}.exe" debug="${debug}" codepage="936" >
             <sources>
-                <include name="src/**/*.cs"/>
-				<exclude name="src/Html2Rtf/**/*.cs"/>
+                <include name="src/core/**/*.cs"/>
+				<exclude name="src/core/Html2Rtf/**/*.cs"/>
             </sources>
 			<references>
 				<include name="System.Data.dll"/>
+				<include name="System.Data.DataSetExtensions.dll"/>
 				<include name="System.Drawing.dll"/>
-				<include name="System.Web.dll"/>
 				<include name="System.Windows.Forms.dll"/>
 				<include name="System.Xml.dll"/>
 			</references>
 			<resources>
-				<include name="src/**/*.resx"/>
+				<include name="src/core/**/*.resx"/>
 			</resources>
         </csc>
-		<copy tofile="bin/${basename}.exe.config" file="src/App.config"/>
+		<copy tofile="bin/${basename}.exe.config" file="src/core/App.config"/>
     </target>
 </project>
 
