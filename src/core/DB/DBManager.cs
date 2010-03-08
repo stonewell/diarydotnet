@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.Common;
 using System.Collections;
 using System.Data;
+using System.Linq;
 
 namespace Diary.Net.DB
 {
@@ -354,5 +355,27 @@ namespace Diary.Net.DB
                 }
             }
         }
+		
+#if __MonoCS__
+		public static void UpdateAutoIncrementSeed(DataSet ds)
+		{
+			foreach(DataTable dt in ds.Tables)
+			{
+				if (!dt.IsInitialized || dt.Rows.Count == 0)
+					continue;
+				
+				foreach(DataColumn dc in dt.Columns)
+				{
+					if (dc.AutoIncrement)
+					{
+						System.Console.WriteLine("{0},{1}", dt.TableName, dc.ColumnName);
+						dc.AutoIncrementSeed = 
+							dt.AsEnumerable().Max(row => row.Field<int>(dc.ColumnName)) 
+							+ dc.AutoIncrementStep;
+					}
+				}
+			}
+		}
+#endif
     }
 }

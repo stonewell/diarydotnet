@@ -314,7 +314,7 @@ namespace Diary.Net
                 }
                 catch (Exception ex)
                 {
-                    dbTrans.Rollback();
+                   dbTrans.Rollback();
                     MessageBox.Show(this, ex.Message, "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -413,6 +413,8 @@ namespace Diary.Net
             deletedAttachments_.Clear();
             insertedAttachments_.Clear();
 
+			Program.DiaryNetDS = new DiaryNetDS();
+			
             LoadAttachements();
             LoadDialyNotes();
             LoadDocuments();
@@ -420,8 +422,14 @@ namespace Diary.Net
             ChangeToDate(DateTime.Today);
 
             RefreshView();
+			
+			Program.DiaryNetDS.AcceptChanges();
+			
+#if __MonoCS__
+			DBManager.UpdateAutoIncrementSeed(Program.DiaryNetDS);
+#endif
         }
-
+		
         private void ChangeToDate(DateTime date)
         {
             currentDay_ = date;

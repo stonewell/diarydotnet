@@ -35,14 +35,11 @@ namespace Diary.Net
 
         static void Application_ApplicationExit(object sender, EventArgs e)
         {
-System.Console.WriteLine("Exit");
             if (dbConnection_.State != System.Data.ConnectionState.Closed)
             {
-System.Console.WriteLine("VACUUM");
                 DBManager.ExecuteNonQuery(dbConnection_, "VACUUM");
                 dbConnection_.Close();
             }
-System.Console.WriteLine("Exit Done");
         }
 
         public static DiaryNetDS DiaryNetDS
@@ -51,6 +48,11 @@ System.Console.WriteLine("Exit Done");
             {
                 return dairyNetDS_;
             }
+			
+			set
+			{
+                dairyNetDS_ = value;
+			}
         }
 
         public static DbProviderFactory DbProvideFactory
@@ -96,8 +98,6 @@ System.Console.WriteLine("Exit Done");
             DBManager.ExecuteNonQuery(dbConnection_, "PRAGMA auto_vacuum =1");
 
             DBManager.VerifyAndPatchDatabase(dbConnection_);
-
-            dairyNetDS_ = new DiaryNetDS();
         }
     }
 }
