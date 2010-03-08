@@ -1804,7 +1804,9 @@ namespace Diary.Net
                 bNew = true;
             }
             else
+            {
                 row.BeginEdit();
+            }
 
             row.Modify_Date = DateTime.Now;
 
@@ -1832,56 +1834,35 @@ namespace Diary.Net
 
                 rch.Rtf = DBManager.GetBinary(Program.DbConnection,
                     row.Binary_ID);
-                rch.Select(rch.Text.Length, 0);
-                rch.SelectedText =
-                    string.Format("\r\n---------Merged Data Begin {0} ------\r\n",
-                        DateTime.Now);
-                rch.SelectedRtf = bRowContent;
-                rch.Select(rch.Text.Length, 0);
-                rch.SelectedText =
-                    string.Format("\r\n---------Merged Data End {0} ------\r\n",
-                        DateTime.Now);
 
-                row.Binary_ID =
-                    DBManager.SaveBinary(Program.DbConnection,
-                    row.Binary_ID,
-                    rch.Rtf);
-                row.Text_ID = DBManager.SaveText(Program.DbConnection,
-                    row.Text_ID,
-                    row.ID,
-                    false,
-                    "",
-                    rch.Text);
+                if (string.Compare(rch.Rtf, bRowContent) != 0)
+                {
+                    rch.Select(rch.Text.Length, 0);
+                    rch.SelectedText =
+                        string.Format("\r\n\r\n---------Merged Data Begin {0} ------\r\n\r\n",
+                            DateTime.Now);
+                    rch.SelectedRtf = bRowContent;
+                    rch.Select(rch.Text.Length, 0);
+                    rch.SelectedText =
+                        string.Format("\r\n\r\n---------Merged Data End {0} ------\r\n\r\n",
+                            DateTime.Now);
+
+                    row.Binary_ID =
+                        DBManager.SaveBinary(Program.DbConnection,
+                        row.Binary_ID,
+                        rch.Rtf);
+                    row.Text_ID = DBManager.SaveText(Program.DbConnection,
+                        row.Text_ID,
+                        row.ID,
+                        false,
+                        "",
+                        rch.Text);
+                }
                 row.EndEdit();
             }
 
             //Merge all attachments
-            var qq = from arow in mergeDS.Attachments
-                     where arow.Ref_ID == mergeRow.ID &&
-                        arow.Is_Notes == '1'
-                     select arow;
-            IEnumerator<DiaryNetDS.AttachmentsRow> itt = qq.GetEnumerator();
-
-            while (itt.MoveNext())
-            {
-                DiaryNetDS.AttachmentsRow mergeAttachRow = itt.Current;
-
-                DiaryNetDS.Content_BinaryRow bbRow =
-                    mergeDS.Content_Binary.FindByID(mergeAttachRow.Binary_ID);
-
-                if (bbRow == null)
-                    continue;
-
-                DiaryNetDS.AttachmentsRow attachRow =
-                    Program.DiaryNetDS.Attachments.AddAttachmentsRow('1',
-                        row.ID, mergeAttachRow.FileName, -1);
-
-                attachRow.BeginEdit();
-                attachRow.Binary_ID =
-                    DBManager.SaveBinary(Program.DbConnection, -1,
-                    Encoding.Default.GetString(bbRow.Content));
-                attachRow.EndEdit();
-            }
+            MergeAllAttachments(mergeDS, row.ID, mergeRow.ID, true);
 
         }//MergeDiaryNote
 
@@ -1898,34 +1879,73 @@ namespace Diary.Net
             if (bRow != null) bRowContent = Encoding.Default.GetString(bRow.Content);
             if (tRow != null) tRowContent = tRow.Content;
 
-            DiaryNetDS.DocumentsRow row = 
-                Program.DiaryNetDS.Documents.NewDocumentsRow();
+            var q = from document in Program.DiaryNetDS.Documents
+                    where document.Title == mergeRow.Title
+                    select document;
 
-            row.Binary_ID = -1;
-            row.Text_ID = -1;
-            row.Title = mergeRow.Title;
-            row.Create_Date = mergeRow.Create_Date;
-            row.Modify_Date = mergeRow.Modify_Date;
+            IEnumerator<DiaryNetDS.DocumentsRow> it = q.GetEnumerator();
 
-            row.Binary_ID =
-                DBManager.SaveBinary(Program.DbConnection,
-                row.Binary_ID,
-                bRowContent);
+            bool createNew = true;
+            DiaryNetDS.DocumentsRow row = null;
 
-            row.Text_ID = DBManager.SaveText(Program.DbConnection,
-                row.Text_ID,
-                row.ID,
-                true,
-                mergeRow.Title,
-                tRowContent);
+            while (it.MoveNext())
+            {
+                string curBinaryData =
+                    DBManager.GetBinary(Program.DbConnection,
+                        it.Current.Binary_ID);
 
-            Program.DiaryNetDS.Documents.AddDocumentsRow(row);
+                if (string.Compare(curBinaryData, bRowContent) == 0)
+                {
+                    createNew = false;
+                    row = it.Current;
+                    break;
+                }
+            }
+
+            if (createNew)
+            {
+                row =
+                    Program.DiaryNetDS.Documents.NewDocumentsRow();
+
+                row.Binary_ID = -1;
+                row.Text_ID = -1;
+                row.Title = mergeRow.Title;
+                row.Create_Date = mergeRow.Create_Date;
+                row.Modify_Date = mergeRow.Modify_Date;
+
+                row.Binary_ID =
+                    DBManager.SaveBinary(Program.DbConnection,
+                    row.Binary_ID,
+                    bRowContent);
+
+                row.Text_ID = DBManager.SaveText(Program.DbConnection,
+                    row.Text_ID,
+                    row.ID,
+                    true,
+                    mergeRow.Title,
+                    tRowContent);
+
+                Program.DiaryNetDS.Documents.AddDocumentsRow(row);
+            }
+            else
+            {
+                row.BeginEdit();
+                row.Modify_Date = DateTime.Now;
+                row.EndEdit();
+            }
 
             //Merge all attachments
+            MergeAllAttachments(mergeDS, row.ID, mergeRow.ID, false);
+
+        }//merge documents
+
+        private void MergeAllAttachments(DiaryNetDS mergeDS, int refId, int mergeRefId, bool isNotes)
+        {
             var qq = from arow in mergeDS.Attachments
-                     where arow.Ref_ID == mergeRow.ID &&
-                        arow.Is_Notes == '0'
+                     where arow.Ref_ID == mergeRefId &&
+                        arow.Is_Notes == (isNotes ? '1':'0')
                      select arow;
+
             IEnumerator<DiaryNetDS.AttachmentsRow> itt = qq.GetEnumerator();
 
             while (itt.MoveNext())
@@ -1938,19 +1958,44 @@ namespace Diary.Net
                 if (bbRow == null)
                     continue;
 
+                var attachQ = from tmpRow in Program.DiaryNetDS.Attachments
+                              where string.Compare(tmpRow.FileName, mergeAttachRow.FileName) == 0
+                                && tmpRow.Is_Notes == (isNotes ? '1' : '0')
+                              select tmpRow;
+
+                bool createNew = true;
+
+                string bbRowContent = 
+                    Encoding.Default.GetString(bbRow.Content);
+
+                IEnumerator<DiaryNetDS.AttachmentsRow> attachIt = attachQ.GetEnumerator();
+
+                while (attachIt.MoveNext())
+                {
+                    string binary = DBManager.GetBinary(Program.DbConnection,
+                        attachIt.Current.Binary_ID);
+
+                    if (string.Compare(binary, bbRowContent) == 0)
+                    {
+                        createNew = false;
+                        break;
+                    }
+                }
+
+                if (!createNew)
+                    continue;
+
                 DiaryNetDS.AttachmentsRow attachRow =
-                    Program.DiaryNetDS.Attachments.AddAttachmentsRow('0',
-                        row.ID, mergeAttachRow.FileName, -1);
+                    Program.DiaryNetDS.Attachments.AddAttachmentsRow(isNotes ? '1' : '0',
+                        refId, mergeAttachRow.FileName, -1);
 
                 attachRow.BeginEdit();
                 attachRow.Binary_ID =
                     DBManager.SaveBinary(Program.DbConnection, -1,
-                    Encoding.Default.GetString(bbRow.Content));
+                    bbRowContent);
                 attachRow.EndEdit();
             }
-
-        }//merge documents
-
+        }
     }//class
 }//namespace
 

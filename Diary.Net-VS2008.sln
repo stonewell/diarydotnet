@@ -5,6 +5,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Net-VS2008", "src\cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatTabControl-VS2008", "src\third-party\FlatTabControl\FlatTabControl-VS2008.csproj", "{96002CA1-D295-4ED5-9B08-92346C1BFA18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{1F4A1F37-8CAC-4AFD-8730-FE760B5F7BF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "third-party", "third-party", "{8297B7A2-27C5-405F-9DE4-DBE3E2013821}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "addons", "addons", "{68CAD1C3-59D5-45B5-B0DE-ABC0A1961128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlProcessor.Net", "addons\HtmlProcessor.Net\HtmlProcessor.Net.csproj", "{143FF3BF-2870-41E6-B425-1B819917C842}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +37,19 @@ Global
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|x64.ActiveCfg = Release|x64
 		{96002CA1-D295-4ED5-9B08-92346C1BFA18}.Release|x64.Build.0 = Release|x64
+		{143FF3BF-2870-41E6-B425-1B819917C842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143FF3BF-2870-41E6-B425-1B819917C842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143FF3BF-2870-41E6-B425-1B819917C842}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{143FF3BF-2870-41E6-B425-1B819917C842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143FF3BF-2870-41E6-B425-1B819917C842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143FF3BF-2870-41E6-B425-1B819917C842}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6331F8E8-E5F5-4E23-BB10-8D98CA85B3A4} = {1F4A1F37-8CAC-4AFD-8730-FE760B5F7BF4}
+		{96002CA1-D295-4ED5-9B08-92346C1BFA18} = {8297B7A2-27C5-405F-9DE4-DBE3E2013821}
+		{143FF3BF-2870-41E6-B425-1B819917C842} = {68CAD1C3-59D5-45B5-B0DE-ABC0A1961128}
 	EndGlobalSection
 EndGlobal
