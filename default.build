@@ -14,7 +14,7 @@
 
     <target name="build">
         <mkdir dir="bin" />
-        <csc target="exe" output="bin/${basename}.exe" debug="${debug}" codepage="936" >
+        <csc target="winexe" output="bin/${basename}.exe" debug="${debug}" codepage="936" >
             <sources>
                 <include name="src/**/*.cs"/>
 				<exclude name="src/Html2Rtf/**/*.cs"/>
