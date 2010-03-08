@@ -1,3 +1,5 @@
+using Diary.Net.Control;
+
 namespace Diary.Net
 {
     partial class MainFrm
@@ -86,7 +88,7 @@ namespace Diary.Net
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scMainOthers = new System.Windows.Forms.SplitContainer();
             this.scNaviContent = new System.Windows.Forms.SplitContainer();
-            this.tcNavigation = new FlatTabControl.FlatTabControl();
+            this.tcNavigation = new DiaryNetTabControl();
             this.tpDariy = new System.Windows.Forms.TabPage();
             this.tvwDiary = new System.Windows.Forms.TreeView();
             this.tpDocuments = new System.Windows.Forms.TabPage();
@@ -95,7 +97,7 @@ namespace Diary.Net
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.lvwAttachments = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.ftcOthers = new FlatTabControl.FlatTabControl();
+            this.ftcOthers = new DiaryNetTabControl();
             this.tpFindResults = new System.Windows.Forms.TabPage();
             this.tvwFindResults = new System.Windows.Forms.TreeView();
             this.importNotesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -744,13 +746,8 @@ namespace Diary.Net
         private System.Windows.Forms.ToolStripMenuItem findResultToolStripMenuItem;
         private System.Windows.Forms.SplitContainer scMainOthers;
         private System.Windows.Forms.SplitContainer scNaviContent;
-#if __MonoCS__
-        private System.Windows.Forms.TabControl tcNavigation;
-        private System.Windows.Forms.TabControl ftcOthers;
-#else
-        private FlatTabControl.FlatTabControl ftcOthers;
-        private FlatTabControl.FlatTabControl tcNavigation;
-#endif
+        private DiaryNetTabControl ftcOthers;
+        private DiaryNetTabControl tcNavigation;
         private System.Windows.Forms.TabPage tpDariy;
         private System.Windows.Forms.TreeView tvwDiary;
         private System.Windows.Forms.TabPage tpDocuments;

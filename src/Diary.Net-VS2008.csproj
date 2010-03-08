@@ -91,6 +91,12 @@
     <Compile Include="AboutBoxFrm.Designer.cs">
       <DependentUpon>AboutBoxFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\DiaryNetTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\DiaryNetTabControl.Designer.cs">
+      <DependentUpon>DiaryNetTabControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB\DiaryNetDS.cs">
       <DependentUpon>DiaryNetDS.xsd</DependentUpon>
       <SubType>Component</SubType>
