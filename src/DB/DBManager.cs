@@ -24,7 +24,7 @@ namespace Diary.Net.DB
 
         public static void VerifyAndPatchDatabase(DbConnection conn)
         {
-            if (TableExists(conn, "Drop table Content_FullText"))
+            if (TableExists(conn, "Content_FullText"))
             {
                 ExecuteNonQuery(conn, "Drop table Content_FullText");
             }
