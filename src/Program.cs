@@ -8,7 +8,8 @@ namespace Diary.Net
 {
     static class Program
     {
-        private static readonly DiaryNetDS dairyNetDS_ = new DiaryNetDS();
+        private static DiaryNetDS dairyNetDS_ = new DiaryNetDS();
+
         private static readonly DbProviderFactory dbProvideFactory_ = 
 #if __MonoCS__
             DbProviderFactories.GetFactory("Mono.Data.SQLite");
@@ -95,6 +96,8 @@ System.Console.WriteLine("Exit Done");
             DBManager.ExecuteNonQuery(dbConnection_, "PRAGMA auto_vacuum =1");
 
             DBManager.VerifyAndPatchDatabase(dbConnection_);
+
+            dairyNetDS_ = new DiaryNetDS();
         }
     }
 }

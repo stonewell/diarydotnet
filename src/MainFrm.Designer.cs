@@ -86,11 +86,7 @@ namespace Diary.Net
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scMainOthers = new System.Windows.Forms.SplitContainer();
             this.scNaviContent = new System.Windows.Forms.SplitContainer();
-#if __MonoCS__
-			this.tcNavigation = new System.Windows.Forms.TabControl();
-#else
             this.tcNavigation = new FlatTabControl.FlatTabControl();
-#endif
             this.tpDariy = new System.Windows.Forms.TabPage();
             this.tvwDiary = new System.Windows.Forms.TreeView();
             this.tpDocuments = new System.Windows.Forms.TabPage();
@@ -99,13 +95,14 @@ namespace Diary.Net
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.lvwAttachments = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-#if __MonoCS__
-            this.ftcOthers = new System.Windows.Forms.TabControl();
-#else
             this.ftcOthers = new FlatTabControl.FlatTabControl();
-#endif
             this.tpFindResults = new System.Windows.Forms.TabPage();
             this.tvwFindResults = new System.Windows.Forms.TreeView();
+            this.importNotesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportNotesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.documentsContextMenuStrip.SuspendLayout();
             this.lvwAttachmentsContextMenuStrip.SuspendLayout();
@@ -148,6 +145,9 @@ namespace Diary.Net
             this.saveToolStripMenuItem,
             this.todaToolStripMenuItem,
             this.toolStripSeparator1,
+            this.importNotesMenuItem,
+            this.exportNotesMenuItem,
+            this.toolStripSeparator6,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
@@ -510,11 +510,7 @@ namespace Diary.Net
             this.tcNavigation.Controls.Add(this.tpDariy);
             this.tcNavigation.Controls.Add(this.tpDocuments);
             resources.ApplyResources(this.tcNavigation, "tcNavigation");
-#if __MonoCS__
-            this.tcNavigation.BackColor = System.Drawing.SystemColors.Control;
-#else
             this.tcNavigation.myBackColor = System.Drawing.SystemColors.Control;
-#endif
             this.tcNavigation.Name = "tcNavigation";
             this.tcNavigation.SelectedIndex = 0;
             this.tcNavigation.Selected += new System.Windows.Forms.TabControlEventHandler(this.tcNavigation_Selected);
@@ -607,11 +603,7 @@ namespace Diary.Net
             // 
             this.ftcOthers.Controls.Add(this.tpFindResults);
             resources.ApplyResources(this.ftcOthers, "ftcOthers");
-#if	__MonoCS__
-            this.ftcOthers.BackColor = System.Drawing.SystemColors.Control;
-#else
             this.ftcOthers.myBackColor = System.Drawing.SystemColors.Control;
-#endif
             this.ftcOthers.Name = "ftcOthers";
             this.ftcOthers.SelectedIndex = 0;
             // 
@@ -628,6 +620,33 @@ namespace Diary.Net
             resources.ApplyResources(this.tvwFindResults, "tvwFindResults");
             this.tvwFindResults.Name = "tvwFindResults";
             this.tvwFindResults.DoubleClick += new System.EventHandler(this.tvwFindResults_DoubleClick);
+            // 
+            // importNotesMenuItem
+            // 
+            this.importNotesMenuItem.Name = "importNotesMenuItem";
+            resources.ApplyResources(this.importNotesMenuItem, "importNotesMenuItem");
+            this.importNotesMenuItem.Click += new System.EventHandler(this.importNotesMenuItem_Click);
+            // 
+            // exportNotesMenuItem
+            // 
+            this.exportNotesMenuItem.Name = "exportNotesMenuItem";
+            resources.ApplyResources(this.exportNotesMenuItem, "exportNotesMenuItem");
+            this.exportNotesMenuItem.Click += new System.EventHandler(this.exportNotesMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "notes";
+            resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.DefaultExt = "notes";
+            resources.ApplyResources(this.openFileDialog2, "openFileDialog2");
             // 
             // MainFrm
             // 
@@ -742,6 +761,11 @@ namespace Diary.Net
         private System.Windows.Forms.TabPage tpFindResults;
         private System.Windows.Forms.TreeView tvwFindResults;
         private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.ToolStripMenuItem importNotesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportNotesMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }
 

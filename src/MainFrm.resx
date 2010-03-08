@@ -121,6 +121,37 @@
     <value>0, 0</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
   <data name="loginToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
   </data>
@@ -179,11 +210,11 @@
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 20</value>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
   </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;File</value>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
   </data>
   <data name="cutToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+X</value>
@@ -233,11 +264,11 @@
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Options</value>
   </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
+  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 20</value>
   </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Edit</value>
+  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;View</value>
   </data>
   <data name="attachmentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
@@ -269,11 +300,11 @@
   <data name="statusBarToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Status Bar</value>
   </data>
-  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 20</value>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 20</value>
   </data>
-  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;View</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Help</value>
   </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 22</value>
@@ -281,39 +312,8 @@
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;About...</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Help</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 24</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 462</value>
+    <value>670, 35</value>
   </metadata>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 462</value>
@@ -342,6 +342,15 @@
   <metadata name="documentsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>163, 35</value>
   </metadata>
+  <data name="documentsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 54</value>
+  </data>
+  <data name="&gt;&gt;documentsContextMenuStrip.Name" xml:space="preserve">
+    <value>documentsContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;documentsContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="addDocumentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
   </data>
@@ -357,18 +366,18 @@
   <data name="removeAllDocumentsToolStripMenuItem.Text" xml:space="preserve">
     <value>Remove All Documents</value>
   </data>
-  <data name="documentsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 54</value>
-  </data>
-  <data name="&gt;&gt;documentsContextMenuStrip.Name" xml:space="preserve">
-    <value>documentsContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;documentsContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <metadata name="lvwAttachmentsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>305, 4</value>
   </metadata>
+  <data name="lvwAttachmentsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 214</value>
+  </data>
+  <data name="&gt;&gt;lvwAttachmentsContextMenuStrip.Name" xml:space="preserve">
+    <value>lvwAttachmentsContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;lvwAttachmentsContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="addAttachmentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 22</value>
   </data>
@@ -429,15 +438,6 @@
   <data name="tileViewToolStripMenuItem.Text" xml:space="preserve">
     <value>Tile View</value>
   </data>
-  <data name="lvwAttachmentsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 214</value>
-  </data>
-  <data name="&gt;&gt;lvwAttachmentsContextMenuStrip.Name" xml:space="preserve">
-    <value>lvwAttachmentsContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;lvwAttachmentsContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <metadata name="imageListLarge.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>862, 8</value>
   </metadata>
@@ -453,12 +453,6 @@
   <metadata name="dayNodeContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>123, 2</value>
   </metadata>
-  <data name="deleteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 22</value>
-  </data>
-  <data name="deleteToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Delete</value>
-  </data>
   <data name="dayNodeContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 26</value>
   </data>
@@ -467,6 +461,12 @@
   </data>
   <data name="&gt;&gt;dayNodeContextMenuStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="deleteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 22</value>
+  </data>
+  <data name="deleteToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Delete</value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>636, 5</value>
@@ -480,6 +480,15 @@
   <metadata name="docNodeContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>358, 35</value>
   </metadata>
+  <data name="docNodeContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 70</value>
+  </data>
+  <data name="&gt;&gt;docNodeContextMenuStrip.Name" xml:space="preserve">
+    <value>docNodeContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;docNodeContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="newDocumentToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>158, 22</value>
   </data>
@@ -498,15 +507,6 @@
   <data name="deleteToolStripMenuItem1.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="docNodeContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 70</value>
-  </data>
-  <data name="&gt;&gt;docNodeContextMenuStrip.Name" xml:space="preserve">
-    <value>docNodeContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;docNodeContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="scMainOthers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -522,81 +522,6 @@
   <data name="scNaviContent.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="tvwDiary.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tvwDiary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tvwDiary.Nodes" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
-        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
-        AQABAAEICAgCAAAABgMAAAAFTm9kZTAJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
-</value>
-  </data>
-  <data name="tvwDiary.Nodes1" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
-        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
-        AQABAAEICAgCAAAABgMAAAAFTm9kZTEJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
-</value>
-  </data>
-  <data name="tvwDiary.Nodes2" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
-        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
-        AQABAAEICAgCAAAABgMAAAAFTm9kZTIJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
-</value>
-  </data>
-  <data name="tvwDiary.Nodes3" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
-        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
-        AQABAAEICAgCAAAABgMAAAAFTm9kZTMJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
-</value>
-  </data>
-  <data name="tvwDiary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 314</value>
-  </data>
-  <data name="tvwDiary.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tvwDiary.Name" xml:space="preserve">
-    <value>tvwDiary</value>
-  </data>
-  <data name="&gt;&gt;tvwDiary.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tvwDiary.Parent" xml:space="preserve">
-    <value>tpDariy</value>
-  </data>
-  <data name="&gt;&gt;tvwDiary.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tpDariy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tpDariy.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tpDariy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 314</value>
-  </data>
-  <data name="tpDariy.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tpDariy.Text" xml:space="preserve">
-    <value>Diary</value>
-  </data>
   <data name="&gt;&gt;tpDariy.Name" xml:space="preserve">
     <value>tpDariy</value>
   </data>
@@ -608,45 +533,6 @@
   </data>
   <data name="&gt;&gt;tpDariy.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="tvwDocuments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tvwDocuments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tvwDocuments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 314</value>
-  </data>
-  <data name="tvwDocuments.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tvwDocuments.Name" xml:space="preserve">
-    <value>tvwDocuments</value>
-  </data>
-  <data name="&gt;&gt;tvwDocuments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tvwDocuments.Parent" xml:space="preserve">
-    <value>tpDocuments</value>
-  </data>
-  <data name="&gt;&gt;tvwDocuments.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tpDocuments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tpDocuments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tpDocuments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 314</value>
-  </data>
-  <data name="tpDocuments.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tpDocuments.Text" xml:space="preserve">
-    <value>Documents</value>
   </data>
   <data name="&gt;&gt;tpDocuments.Name" xml:space="preserve">
     <value>tpDocuments</value>
@@ -682,7 +568,7 @@
     <value>tcNavigation</value>
   </data>
   <data name="&gt;&gt;tcNavigation.Type" xml:space="preserve">
-    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3716.17164, Culture=neutral, PublicKeyToken=null</value>
+    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3716.17330, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tcNavigation.Parent" xml:space="preserve">
     <value>scNaviContent.Panel1</value>
@@ -864,16 +750,235 @@
   <data name="&gt;&gt;scMainOthers.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tvwFindResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="&gt;&gt;tpFindResults.Name" xml:space="preserve">
+    <value>tpFindResults</value>
+  </data>
+  <data name="&gt;&gt;tpFindResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpFindResults.Parent" xml:space="preserve">
+    <value>ftcOthers</value>
+  </data>
+  <data name="&gt;&gt;tpFindResults.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ftcOthers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tvwFindResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="ftcOthers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="tvwFindResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 56</value>
+  <data name="ftcOthers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 91</value>
   </data>
-  <data name="tvwFindResults.TabIndex" type="System.Int32, mscorlib">
+  <data name="ftcOthers.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ftcOthers.Name" xml:space="preserve">
+    <value>ftcOthers</value>
+  </data>
+  <data name="&gt;&gt;ftcOthers.Type" xml:space="preserve">
+    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3716.17330, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ftcOthers.Parent" xml:space="preserve">
+    <value>scMainOthers.Panel2</value>
+  </data>
+  <data name="&gt;&gt;ftcOthers.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Panel2.Name" xml:space="preserve">
+    <value>scMainOthers.Panel2</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Panel2.Parent" xml:space="preserve">
+    <value>scMainOthers</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="scMainOthers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 438</value>
+  </data>
+  <data name="scMainOthers.SplitterDistance" type="System.Int32, mscorlib">
+    <value>343</value>
+  </data>
+  <data name="scMainOthers.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Name" xml:space="preserve">
+    <value>scMainOthers</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;scMainOthers.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.Name" xml:space="preserve">
+    <value>tvwDiary</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.Parent" xml:space="preserve">
+    <value>tpDariy</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpDariy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="tpDariy.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tpDariy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 314</value>
+  </data>
+  <data name="tpDariy.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tpDariy.Text" xml:space="preserve">
+    <value>Diary</value>
+  </data>
+  <data name="&gt;&gt;tpDariy.Name" xml:space="preserve">
+    <value>tpDariy</value>
+  </data>
+  <data name="&gt;&gt;tpDariy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpDariy.Parent" xml:space="preserve">
+    <value>tcNavigation</value>
+  </data>
+  <data name="&gt;&gt;tpDariy.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tvwDiary.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tvwDiary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tvwDiary.Nodes" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
+        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
+        AQABAAEICAgCAAAABgMAAAAFTm9kZTAJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="tvwDiary.Nodes1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
+        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
+        AQABAAEICAgCAAAABgMAAAAFTm9kZTEJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="tvwDiary.Nodes2" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
+        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
+        AQABAAEICAgCAAAABgMAAAAFTm9kZTIJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="tvwDiary.Nodes3" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQgAAAAEVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4
+        CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQAA
+        AQABAAEICAgCAAAABgMAAAAFTm9kZTMJAwAAAAD/////BgQAAAAA/////wkEAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="tvwDiary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 314</value>
+  </data>
+  <data name="tvwDiary.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.Name" xml:space="preserve">
+    <value>tvwDiary</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.Parent" xml:space="preserve">
+    <value>tpDariy</value>
+  </data>
+  <data name="&gt;&gt;tvwDiary.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.Name" xml:space="preserve">
+    <value>tvwDocuments</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.Parent" xml:space="preserve">
+    <value>tpDocuments</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpDocuments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="tpDocuments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tpDocuments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 314</value>
+  </data>
+  <data name="tpDocuments.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tpDocuments.Text" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="&gt;&gt;tpDocuments.Name" xml:space="preserve">
+    <value>tpDocuments</value>
+  </data>
+  <data name="&gt;&gt;tpDocuments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpDocuments.Parent" xml:space="preserve">
+    <value>tcNavigation</value>
+  </data>
+  <data name="&gt;&gt;tpDocuments.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tvwDocuments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tvwDocuments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tvwDocuments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 314</value>
+  </data>
+  <data name="tvwDocuments.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.Name" xml:space="preserve">
+    <value>tvwDocuments</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.Parent" xml:space="preserve">
+    <value>tpDocuments</value>
+  </data>
+  <data name="&gt;&gt;tvwDocuments.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;tvwFindResults.Name" xml:space="preserve">
@@ -915,62 +1020,56 @@
   <data name="&gt;&gt;tpFindResults.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ftcOthers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="tvwFindResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="ftcOthers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="tvwFindResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="ftcOthers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 91</value>
+  <data name="tvwFindResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 56</value>
   </data>
-  <data name="ftcOthers.TabIndex" type="System.Int32, mscorlib">
+  <data name="tvwFindResults.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;ftcOthers.Name" xml:space="preserve">
-    <value>ftcOthers</value>
+  <data name="&gt;&gt;tvwFindResults.Name" xml:space="preserve">
+    <value>tvwFindResults</value>
   </data>
-  <data name="&gt;&gt;ftcOthers.Type" xml:space="preserve">
-    <value>FlatTabControl.FlatTabControl, FlatTabControl, Version=1.0.3716.17164, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;tvwFindResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ftcOthers.Parent" xml:space="preserve">
-    <value>scMainOthers.Panel2</value>
+  <data name="&gt;&gt;tvwFindResults.Parent" xml:space="preserve">
+    <value>tpFindResults</value>
   </data>
-  <data name="&gt;&gt;ftcOthers.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tvwFindResults.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;scMainOthers.Panel2.Name" xml:space="preserve">
-    <value>scMainOthers.Panel2</value>
+  <data name="importNotesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
   </data>
-  <data name="&gt;&gt;scMainOthers.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="importNotesMenuItem.Text" xml:space="preserve">
+    <value>Import ...</value>
   </data>
-  <data name="&gt;&gt;scMainOthers.Panel2.Parent" xml:space="preserve">
-    <value>scMainOthers</value>
+  <data name="exportNotesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
   </data>
-  <data name="&gt;&gt;scMainOthers.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="exportNotesMenuItem.Text" xml:space="preserve">
+    <value>Export ...</value>
   </data>
-  <data name="scMainOthers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 438</value>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 6</value>
   </data>
-  <data name="scMainOthers.SplitterDistance" type="System.Int32, mscorlib">
-    <value>343</value>
+  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>542, 35</value>
+  </metadata>
+  <data name="saveFileDialog1.Filter" xml:space="preserve">
+    <value>Diary.Net Notes|*.notes|All Files|*.*</value>
   </data>
-  <data name="scMainOthers.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;scMainOthers.Name" xml:space="preserve">
-    <value>scMainOthers</value>
-  </data>
-  <data name="&gt;&gt;scMainOthers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;scMainOthers.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;scMainOthers.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <metadata name="openFileDialog2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>780, 35</value>
+  </metadata>
+  <data name="openFileDialog2.Filter" xml:space="preserve">
+    <value>Diary.Net Notes File|*.notes|All Files|*.*</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1297,6 +1396,36 @@
   </data>
   <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;importNotesMenuItem.Name" xml:space="preserve">
+    <value>importNotesMenuItem</value>
+  </data>
+  <data name="&gt;&gt;importNotesMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exportNotesMenuItem.Name" xml:space="preserve">
+    <value>exportNotesMenuItem</value>
+  </data>
+  <data name="&gt;&gt;exportNotesMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator6.Name" xml:space="preserve">
+    <value>toolStripSeparator6</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog1.Name" xml:space="preserve">
+    <value>saveFileDialog1</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog2.Name" xml:space="preserve">
+    <value>openFileDialog2</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainFrm</value>

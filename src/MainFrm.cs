@@ -57,13 +57,13 @@ namespace Diary.Net
             richTextBox.Modified = false;
 
             if (!DoLogin())
-			{
+            {
 #if !__MonoCS__
-               	Application.Exit();
+                Application.Exit();
 #else
 				System.Environment.Exit(0);
 #endif
-			}
+            }
         }
 
         private void LoadDialyNotes()
@@ -78,7 +78,6 @@ namespace Diary.Net
             foreach (DiaryNetDS.DiaryNotesRow row in
                 Program.DiaryNetDS.DiaryNotes)
             {
-System.Console.WriteLine(row.Note_Date);
                 DayTreeNode node = AddDayNode(row.Note_Date, row.ID);
                 node.Commit();
             }
@@ -398,19 +397,29 @@ System.Console.WriteLine(row.Note_Date);
 
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                UpdateViewMenu();
-
-                LoadAttachements();
-                LoadDialyNotes();
-                LoadDocuments();
-
-                ChangeToDate(DateTime.Today);
-
+                InitializeData();
                 return true;
             }
 
-System.Console.WriteLine("Login Cancel");
             return false;
+        }
+
+        private void InitializeData()
+        {
+            UpdateViewMenu();
+
+            yearNodes_.Clear();
+            currentDay_ = DateTime.Now;
+            deletedAttachments_.Clear();
+            insertedAttachments_.Clear();
+
+            LoadAttachements();
+            LoadDialyNotes();
+            LoadDocuments();
+
+            ChangeToDate(DateTime.Today);
+
+            RefreshView();
         }
 
         private void ChangeToDate(DateTime date)
@@ -887,7 +896,12 @@ System.Console.WriteLine("Login Cancel");
 
         private void tcNavigation_Selected(object sender, TabControlEventArgs e)
         {
-            if (e.TabPageIndex == 0)
+            RefreshView();
+        }
+
+        private void RefreshView()
+        {
+            if (tcNavigation.SelectedIndex == 0)
             {
                 if (tvwDiary.SelectedNode is DayTreeNode)
                 {
@@ -1644,5 +1658,299 @@ System.Console.WriteLine("Login Cancel");
                 }
             }
         }
-    }
-}
+
+        private void importNotesMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog2.Title = "Import From";
+
+            if (openFileDialog2.ShowDialog(this) == DialogResult.OK)
+            {
+                ImportFrom(openFileDialog2.FileName);
+            }
+        }
+
+        private void exportNotesMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Title = "Export To";
+
+            if (saveFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                ExportTo(saveFileDialog1.FileName);
+            }
+        }
+
+        private void ExportTo(string filename)
+        {
+            HandleModifiedState();
+
+            try
+            {
+                DiaryNetDS ds = new DiaryNetDS();
+
+                DbDataAdapter adapter =
+                    DBManager.CreateDiaryDataAdapter(Program.DbProvideFactory, Program.DbConnection);
+
+                adapter.Fill(ds.DiaryNotes);
+
+                adapter =
+                    DBManager.CreateAttachmentsDataAdapter(Program.DbProvideFactory, Program.DbConnection);
+                adapter.Fill(ds.Attachments);
+
+                adapter =
+                    DBManager.CreateDocumentsDataAdapter(Program.DbProvideFactory, Program.DbConnection);
+                adapter.Fill(ds.Documents);
+
+                adapter =
+                    DBManager.CreateDataAdapter(Program.DbProvideFactory, Program.DbConnection, "Content_Text");
+                adapter.Fill(ds.Content_Text);
+
+                adapter =
+                    DBManager.CreateDataAdapter(Program.DbProvideFactory, Program.DbConnection, "Content_Binary");
+                adapter.Fill(ds.Content_Binary);
+
+                using (FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write))
+                {
+                    ds.WriteXml(fs);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.Error.WriteLine(ex.StackTrace);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ImportFrom(string filename)
+        {
+            if (!File.Exists(filename))
+                return;
+
+            HandleModifiedState();
+
+            using (DbTransaction dbTrans = Program.DbConnection.BeginTransaction())
+            {
+                Program.DiaryNetDS.AcceptChanges();
+
+                try
+                {
+                    DiaryNetDS ds = new DiaryNetDS();
+
+                    using (FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read))
+                    {
+                        ds.ReadXml(fs);
+                    }
+
+                    foreach (DiaryNetDS.DiaryNotesRow row in ds.DiaryNotes.Rows)
+                    {
+                        MergeDiaryNote(ds, row);
+                    }
+
+                    foreach (DiaryNetDS.DocumentsRow row in ds.Documents.Rows)
+                    {
+                        MergeDocument(ds, row);
+                    }
+
+                    DBManager.CreateDiaryDataAdapter(Program.DbProvideFactory,
+                        Program.DbConnection).Update(Program.DiaryNetDS.DiaryNotes);
+                    DBManager.CreateAttachmentsDataAdapter(Program.DbProvideFactory,
+                        Program.DbConnection).Update(Program.DiaryNetDS.Attachments);
+                    DBManager.CreateDocumentsDataAdapter(Program.DbProvideFactory,
+                        Program.DbConnection).Update(Program.DiaryNetDS.Documents);
+                    dbTrans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    Program.DiaryNetDS.RejectChanges();
+                    dbTrans.Rollback();
+                    System.Console.Error.WriteLine(ex.StackTrace);
+                    MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }//try
+            }//using trans
+
+            InitializeData();
+        }
+
+        private void MergeDiaryNote(DiaryNetDS mergeDS, DiaryNetDS.DiaryNotesRow mergeRow)
+        {
+            DiaryNetDS.DiaryNotesRow row = null;
+
+            DiaryNetDS.Content_BinaryRow bRow =
+                mergeDS.Content_Binary.FindByID(mergeRow.Binary_ID);
+            DiaryNetDS.Content_TextRow tRow =
+                mergeDS.Content_Text.FindByID(mergeRow.Text_ID);
+
+            string bRowContent = string.Empty;
+            string tRowContent = string.Empty;
+
+            if (bRow != null) bRowContent = Encoding.Default.GetString(bRow.Content);
+            if (tRow != null) tRowContent = tRow.Content;
+
+            var q = from Note in Program.DiaryNetDS.DiaryNotes
+                    where Note.Note_Date == mergeRow.Note_Date
+                    select Note;
+
+            IEnumerator<DiaryNetDS.DiaryNotesRow> it = q.GetEnumerator();
+
+            if (it.MoveNext())
+            {
+                row = it.Current;
+            }
+
+            bool bNew = false;
+
+            if (row == null)
+            {
+                row = Program.DiaryNetDS.DiaryNotes.NewDiaryNotesRow();
+                bNew = true;
+            }
+            else
+                row.BeginEdit();
+
+            row.Modify_Date = DateTime.Now;
+
+            if (bNew)
+            {
+                row.Binary_ID = -1;
+                row.Text_ID = -1;
+                row.Note_Date = mergeRow.Note_Date;
+                row.Binary_ID =
+                    DBManager.SaveBinary(Program.DbConnection,
+                    row.Binary_ID,
+                    bRowContent);
+                row.Text_ID = DBManager.SaveText(Program.DbConnection,
+                    row.Text_ID,
+                    row.ID,
+                    false,
+                    "",
+                    tRowContent);
+
+                Program.DiaryNetDS.DiaryNotes.AddDiaryNotesRow(row);
+            }
+            else
+            {
+                RichTextBox rch = new RichTextBox();
+
+                rch.Rtf = DBManager.GetBinary(Program.DbConnection,
+                    row.Binary_ID);
+                rch.Select(rch.Text.Length, 0);
+                rch.SelectedText =
+                    string.Format("\r\n---------Merged Data Begin {0} ------\r\n",
+                        DateTime.Now);
+                rch.SelectedRtf = bRowContent;
+                rch.Select(rch.Text.Length, 0);
+                rch.SelectedText =
+                    string.Format("\r\n---------Merged Data End {0} ------\r\n",
+                        DateTime.Now);
+
+                row.Binary_ID =
+                    DBManager.SaveBinary(Program.DbConnection,
+                    row.Binary_ID,
+                    rch.Rtf);
+                row.Text_ID = DBManager.SaveText(Program.DbConnection,
+                    row.Text_ID,
+                    row.ID,
+                    false,
+                    "",
+                    rch.Text);
+                row.EndEdit();
+            }
+
+            //Merge all attachments
+            var qq = from arow in mergeDS.Attachments
+                     where arow.Ref_ID == mergeRow.ID &&
+                        arow.Is_Notes == '1'
+                     select arow;
+            IEnumerator<DiaryNetDS.AttachmentsRow> itt = qq.GetEnumerator();
+
+            while (itt.MoveNext())
+            {
+                DiaryNetDS.AttachmentsRow mergeAttachRow = itt.Current;
+
+                DiaryNetDS.Content_BinaryRow bbRow =
+                    mergeDS.Content_Binary.FindByID(mergeAttachRow.Binary_ID);
+
+                if (bbRow == null)
+                    continue;
+
+                DiaryNetDS.AttachmentsRow attachRow =
+                    Program.DiaryNetDS.Attachments.AddAttachmentsRow('1',
+                        row.ID, mergeAttachRow.FileName, -1);
+
+                attachRow.BeginEdit();
+                attachRow.Binary_ID =
+                    DBManager.SaveBinary(Program.DbConnection, -1,
+                    Encoding.Default.GetString(bbRow.Content));
+                attachRow.EndEdit();
+            }
+
+        }//MergeDiaryNote
+
+        private void MergeDocument(DiaryNetDS mergeDS, DiaryNetDS.DocumentsRow mergeRow)
+        {
+            DiaryNetDS.Content_BinaryRow bRow =
+                mergeDS.Content_Binary.FindByID(mergeRow.Binary_ID);
+            DiaryNetDS.Content_TextRow tRow =
+                mergeDS.Content_Text.FindByID(mergeRow.Text_ID);
+
+            string bRowContent = string.Empty;
+            string tRowContent = string.Empty;
+
+            if (bRow != null) bRowContent = Encoding.Default.GetString(bRow.Content);
+            if (tRow != null) tRowContent = tRow.Content;
+
+            DiaryNetDS.DocumentsRow row = 
+                Program.DiaryNetDS.Documents.NewDocumentsRow();
+
+            row.Binary_ID = -1;
+            row.Text_ID = -1;
+            row.Title = mergeRow.Title;
+            row.Create_Date = mergeRow.Create_Date;
+            row.Modify_Date = mergeRow.Modify_Date;
+
+            row.Binary_ID =
+                DBManager.SaveBinary(Program.DbConnection,
+                row.Binary_ID,
+                bRowContent);
+
+            row.Text_ID = DBManager.SaveText(Program.DbConnection,
+                row.Text_ID,
+                row.ID,
+                true,
+                mergeRow.Title,
+                tRowContent);
+
+            Program.DiaryNetDS.Documents.AddDocumentsRow(row);
+
+            //Merge all attachments
+            var qq = from arow in mergeDS.Attachments
+                     where arow.Ref_ID == mergeRow.ID &&
+                        arow.Is_Notes == '0'
+                     select arow;
+            IEnumerator<DiaryNetDS.AttachmentsRow> itt = qq.GetEnumerator();
+
+            while (itt.MoveNext())
+            {
+                DiaryNetDS.AttachmentsRow mergeAttachRow = itt.Current;
+
+                DiaryNetDS.Content_BinaryRow bbRow =
+                    mergeDS.Content_Binary.FindByID(mergeAttachRow.Binary_ID);
+
+                if (bbRow == null)
+                    continue;
+
+                DiaryNetDS.AttachmentsRow attachRow =
+                    Program.DiaryNetDS.Attachments.AddAttachmentsRow('0',
+                        row.ID, mergeAttachRow.FileName, -1);
+
+                attachRow.BeginEdit();
+                attachRow.Binary_ID =
+                    DBManager.SaveBinary(Program.DbConnection, -1,
+                    Encoding.Default.GetString(bbRow.Content));
+                attachRow.EndEdit();
+            }
+
+        }//merge documents
+
+    }//class
+}//namespace
+
