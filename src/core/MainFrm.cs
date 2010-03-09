@@ -13,6 +13,7 @@ using Diary.Net.ListView;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Diary.Net
 {
@@ -243,6 +244,8 @@ namespace Diary.Net
 
             using (DbTransaction dbTrans = Program.DbConnection.BeginTransaction())
             {
+				Program.DiaryNetDS.AcceptChanges();
+
                 try
                 {
                     DiaryNetDS.DiaryNotesRow row = null;
@@ -277,9 +280,9 @@ namespace Diary.Net
                         row.EndEdit();
                     }
 
+                    row.BeginEdit();
                     if (richTextBox.Modified)
                     {
-                        row.BeginEdit();
                         row.Binary_ID =
                             DBManager.SaveBinary(Program.DbConnection,
                             row.Binary_ID,
@@ -290,8 +293,8 @@ namespace Diary.Net
                             false,
                             "",
                             richTextBox.Text);
-                        row.EndEdit();
                     }
+                    row.EndEdit();
 
                     if (IsAttachmentsModified())
                     {
@@ -314,7 +317,8 @@ namespace Diary.Net
                 }
                 catch (Exception ex)
                 {
-                   dbTrans.Rollback();
+                   	dbTrans.Rollback();
+				    Program.DiaryNetDS.RejectChanges();
                     MessageBox.Show(this, ex.Message, "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -362,7 +366,8 @@ namespace Diary.Net
             }
             else
             {
-                richTextBox.Rtf = DBManager.GetBinary(Program.DbConnection, row.Binary_ID);
+                string rtf = DBManager.GetBinary(Program.DbConnection, row.Binary_ID);
+				richTextBox.Rtf = rtf;
 
                 UpdateAttachmentsListView(row.ID, true);
             }
@@ -632,6 +637,7 @@ namespace Diary.Net
 
                     using (DbTransaction dbTrans = Program.DbConnection.BeginTransaction())
                     {
+                		Program.DiaryNetDS.AcceptChanges();
                         try
                         {
                             DBManager.DeleteBinary(Program.DbConnection,
@@ -675,6 +681,7 @@ namespace Diary.Net
                         catch (Exception ex)
                         {
                             dbTrans.Rollback();
+                    		Program.DiaryNetDS.RejectChanges();
                             MessageBox.Show(this, ex.Message, "Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -1021,6 +1028,7 @@ namespace Diary.Net
 
             using (DbTransaction dbTrans = Program.DbConnection.BeginTransaction())
             {
+                Program.DiaryNetDS.AcceptChanges();
                 try
                 {
                     DiaryNetDS.DocumentsRow row =
@@ -1079,6 +1087,7 @@ namespace Diary.Net
                 catch (Exception ex)
                 {
                     dbTrans.Rollback();
+                    Program.DiaryNetDS.RejectChanges();
                     MessageBox.Show(this, ex.Message, "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -1205,6 +1214,7 @@ namespace Diary.Net
 
                 using (DbTransaction dbTrans = Program.DbConnection.BeginTransaction())
                 {
+                	Program.DiaryNetDS.AcceptChanges();
                     try
                     {
                         foreach (DocumentTreeNode node in tvwDocuments.Nodes)
@@ -1221,6 +1231,7 @@ namespace Diary.Net
                     catch (Exception ex)
                     {
                         dbTrans.Rollback();
+                    	Program.DiaryNetDS.RejectChanges();
                         MessageBox.Show(this, ex.Message, "Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
@@ -1284,6 +1295,7 @@ namespace Diary.Net
 
                     using (DbTransaction dbTrans = Program.DbConnection.BeginTransaction())
                     {
+                		Program.DiaryNetDS.AcceptChanges();
                         try
                         {
                             DeleteDocument(node);
@@ -1297,6 +1309,7 @@ namespace Diary.Net
                         catch (Exception ex)
                         {
                             dbTrans.Rollback();
+                    		Program.DiaryNetDS.RejectChanges();
                             MessageBox.Show(this, ex.Message, "Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -1716,7 +1729,6 @@ namespace Diary.Net
             }
             catch (Exception ex)
             {
-                System.Console.Error.WriteLine(ex.StackTrace);
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1761,9 +1773,8 @@ namespace Diary.Net
                 }
                 catch (Exception ex)
                 {
-                    Program.DiaryNetDS.RejectChanges();
                     dbTrans.Rollback();
-                    System.Console.Error.WriteLine(ex.StackTrace);
+                    Program.DiaryNetDS.RejectChanges();
                     MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }//try
             }//using trans
@@ -1783,7 +1794,7 @@ namespace Diary.Net
             string bRowContent = string.Empty;
             string tRowContent = string.Empty;
 
-            if (bRow != null) bRowContent = Encoding.Default.GetString(bRow.Content);
+            if (bRow != null) bRowContent = Program.GetEncoding().GetString(bRow.Content);
             if (tRow != null) tRowContent = tRow.Content;
 
             var q = from Note in Program.DiaryNetDS.DiaryNotes
@@ -1877,7 +1888,7 @@ namespace Diary.Net
             string bRowContent = string.Empty;
             string tRowContent = string.Empty;
 
-            if (bRow != null) bRowContent = Encoding.Default.GetString(bRow.Content);
+            if (bRow != null) bRowContent = Program.GetEncoding().GetString(bRow.Content);
             if (tRow != null) tRowContent = tRow.Content;
 
             var q = from document in Program.DiaryNetDS.Documents
@@ -1967,7 +1978,7 @@ namespace Diary.Net
                 bool createNew = true;
 
                 string bbRowContent = 
-                    Encoding.Default.GetString(bbRow.Content);
+                    Program.GetEncoding().GetString(bbRow.Content);
 
                 IEnumerator<DiaryNetDS.AttachmentsRow> attachIt = attachQ.GetEnumerator();
 

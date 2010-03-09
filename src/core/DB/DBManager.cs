@@ -228,7 +228,7 @@ namespace Diary.Net.DB
                 DbParameter content = cmd.CreateParameter();
 
                 content.ParameterName = "@Content";
-                content.Value = Encoding.Default.GetBytes(binary);
+                content.Value = Program.GetEncoding().GetBytes(binary);
 
                 cmd.Parameters.Add(content);
 
@@ -255,12 +255,32 @@ namespace Diary.Net.DB
 
                 if (o is byte[])
                 {
-                    return Encoding.Default.GetString(o as byte[]);
+                    return Program.GetEncoding().GetString(o as byte[]);
                 }
 
                 return "";
             }
         }
+
+        public static string GetText(DbConnection dbConnection, int id)
+        {
+            using (DbCommand cmd = dbConnection.CreateCommand())
+            {
+                cmd.CommandText = "SELECT Content FROM Content_Text WHERE ID=" + id;
+
+                object o = cmd.ExecuteScalar();
+
+                if (o is byte[])
+                {
+                    return Program.GetEncoding().GetString(o as byte[]);
+                }
+				else if (o is string)
+					return o as string;
+
+                return "";
+            }
+        }
+
 
         public static DbDataAdapter CreateDiaryDataAdapter(DbProviderFactory dbProviderFactory, DbConnection dbConnection)
         {
@@ -285,6 +305,7 @@ namespace Diary.Net.DB
             adp.UpdateCommand = ((ICloneable)builder.GetUpdateCommand()).Clone() as DbCommand;
             adp.InsertCommand = ((ICloneable)builder.GetInsertCommand()).Clone() as DbCommand;
             adp.DeleteCommand = ((ICloneable)builder.GetDeleteCommand()).Clone() as DbCommand;
+			adp.MissingSchemaAction = MissingSchemaAction.AddWithKey;
 
             return adp;
         }
@@ -361,7 +382,7 @@ namespace Diary.Net.DB
 		{
 			foreach(DataTable dt in ds.Tables)
 			{
-				if (!dt.IsInitialized || dt.Rows.Count == 0)
+				if (!dt.IsInitialized)
 					continue;
 				
 				foreach(DataColumn dc in dt.Columns)
@@ -369,9 +390,18 @@ namespace Diary.Net.DB
 					if (dc.AutoIncrement)
 					{
 						System.Console.WriteLine("{0},{1}", dt.TableName, dc.ColumnName);
-						dc.AutoIncrementSeed = 
-							dt.AsEnumerable().Max(row => row.Field<int>(dc.ColumnName)) 
-							+ dc.AutoIncrementStep;
+						
+						if (dt.Rows.Count == 0)
+						{
+							dc.AutoIncrementSeed = 
+								dc.AutoIncrementStep;
+						}
+						else
+						{
+							dc.AutoIncrementSeed = 
+								dt.AsEnumerable().Max(row => row.Field<int>(dc.ColumnName)) 
+								+ dc.AutoIncrementStep;
+						}
 					}
 				}
 			}

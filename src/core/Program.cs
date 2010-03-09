@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Diary.Net.DB;
@@ -99,5 +100,10 @@ namespace Diary.Net
 
             DBManager.VerifyAndPatchDatabase(dbConnection_);
         }
+		
+		public static Encoding GetEncoding()
+		{
+			return Encoding.UTF8;
+		}
     }
 }
