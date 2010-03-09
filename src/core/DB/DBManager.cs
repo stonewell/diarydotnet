@@ -305,7 +305,6 @@ namespace Diary.Net.DB
             adp.UpdateCommand = ((ICloneable)builder.GetUpdateCommand()).Clone() as DbCommand;
             adp.InsertCommand = ((ICloneable)builder.GetInsertCommand()).Clone() as DbCommand;
             adp.DeleteCommand = ((ICloneable)builder.GetDeleteCommand()).Clone() as DbCommand;
-			adp.MissingSchemaAction = MissingSchemaAction.AddWithKey;
 
             return adp;
         }
