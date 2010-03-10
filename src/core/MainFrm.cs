@@ -1185,16 +1185,18 @@ namespace Diary.Net
 					//    break;
 					//}
 					//}
-					Font f = richTextBox.Font;
-					Color fc = richTextBox.ForeColor;
-					Color bc = richTextBox.BackColor;
-
-					richTextBox.Paste();
-					richTextBox.SelectionFont = f;
-					richTextBox.SelectionColor = fc;
-					richTextBox.SelectionBackColor = bc;
-				}
 			}
+			}
+
+			Font f = richTextBox.Font;
+			Color fc = richTextBox.ForeColor;
+			Color bc = richTextBox.BackColor;
+
+			richTextBox.Paste();
+			richTextBox.SelectionFont = f;
+			richTextBox.SelectionColor = fc;
+			richTextBox.SelectionBackColor = bc;
+
 		}
 
 		private void removeAllDocumentsToolStripMenuItem_Click(object sender, EventArgs e)
