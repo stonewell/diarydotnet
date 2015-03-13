@@ -1,0 +1,1 @@
+a simple local diary application created by .Net C#
